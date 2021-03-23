@@ -74,13 +74,40 @@ print(f'El vector resultante de la resta es: {resta}')
 # resultantes
 cantidad = int(input('Ingrese la cantidad de numeros: '))
 vector = []
+productoria = 1
 if cantidad % 2 == 0:
     for i in range(1, cantidad + 1):
         numeros = int(input(f'Ingrese el numero {i}: '))
         vector.append(numeros)
     p1 = vector[:int(len(vector)/2)]
-    p2 = vector[int(len(vector)/2+1):]
-    print(p2)
-    
+    p2 = vector[int(len(vector)/2):]
+    for j in p1:
+        productoria *= j
+    suma = sum(p2)
+    print(f'La productoria de la primera parte es: {productoria}')
+    print(f'La sumatoria de la segunda part es: {suma}')
 else:
     print('El tamaño del vector debe ser par')
+# Dado un vector v, indique si es simétrico, un vector es simétrico si siendo
+# longitud par los números de la primera mitad son iguales al inverso de la
+# otra mitad por ejemplo: X=[1,2,3,3,2,1], en el ejemplo x es un vector
+# simétrico, en caso que la longitud del vector sea impar, se ignorará el
+# elemento central y se seguirá la misma lógica anterior, por ejemplo:
+# Y=[3,5,7,8,7,5,3], en este ejemplo Y es simétrico.
+cantidad = int(input('Ingrese la cantidad de numeros: '))
+vector = []
+
+for i in range(1, cantidad + 1):
+    numeros = int(input(f'Ingrese el numero {i}: '))
+    vector.append(numeros)
+p1 = vector[:int(len(vector)/2)]
+if cantidad % 2 == 0:
+    p2 = vector[int(len(vector)/2):]
+else:
+    p2 = vector[int(len(vector)/2)+1:]
+p2.reverse()
+if p1 == p2:
+    print('El vector es simetrico')
+else:
+    print('El vector no es simetrico')
+
